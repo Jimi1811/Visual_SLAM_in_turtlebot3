@@ -1,0 +1,13 @@
+material sobject/Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr.png
+      }
+    }
+  }
+}
