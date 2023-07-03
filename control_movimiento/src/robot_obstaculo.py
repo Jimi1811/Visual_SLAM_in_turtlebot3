@@ -121,14 +121,14 @@ class Move_Turtlebot():
                 self.robot_order.linear.x = -self.Hertz*0.5
                 self.robot_order.angular.z = 0.
                 self.command.publish(self.robot_order)
-                rospy.sleep(1)
+                rospy.sleep(1.5)
 
                 self.robot_order.linear.x = 0.
                 self.command.publish(self.robot_order)
                 self.rate.sleep()
 
                 # Dar vuelta
-                self.robot_order.angular.z = np.deg2rad(-self.Hertz*180)
+                self.robot_order.angular.z = np.deg2rad(-self.Hertz*45)
                 self.command.publish(self.robot_order)
                 self.rate.sleep()
 
@@ -172,9 +172,6 @@ if __name__ == "__main__":
         xr = P_robot[0,:]     # x en sistema del robot
         yr = P_robot[1,:]     # y en el sistema del robot
 
-        # Realizar movimiento
-        movimiento.follow_trajectory()
-     
         # Construcción del mensaje de mediciones
         cartesian_coordinates = ArrayXY()
         cartesian_coordinates.x = xr
@@ -182,7 +179,9 @@ if __name__ == "__main__":
 
         # Publicación del mensaje de mediciones
         lidar.pub.publish(cartesian_coordinates)
-
-        # Esperar
-        rate.sleep()
         
+        # Realizar movimiento
+        movimiento.follow_trajectory()
+     
+        # Esperar
+        rate.sleep() 
