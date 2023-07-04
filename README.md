@@ -31,9 +31,10 @@
 
 3. Clonar este repositorio y volver a compilar el workspace con los nuevos paquetes.
    ```bash
+   cd ..
    git clone https://github.com/Jimi1811/Visual_SLAM_in_turtlebot3.git
    git clone https://github.com/ros-perception/image_pipeline.git
-   cd ../..
+   cd ..
    catkin_make
    ```
    
