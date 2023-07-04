@@ -40,6 +40,11 @@
    
 4. Dar acceso a los códigos a correr. En cada carpeta 'src' con los códigos de cada paquete:
    ```bash
+   roscd control_movimiento;cd src
+   chmod a+x *
+   roscd odom_imu;cd src
+   chmod a+x *
+   roscd stereo_camera;cd src
    chmod a+x *
    ``` 
 
