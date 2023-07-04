@@ -4,7 +4,7 @@
 import rospy
 import numpy as np
 from sensor_msgs.msg import LaserScan
-from autlab2.msg import ArrayXY
+from control_movimiento.msg import ArrayXY
 from geometry_msgs.msg import Twist
 import tf
 import time
