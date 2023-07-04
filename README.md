@@ -65,12 +65,7 @@
    ``` 
 
    ```bash
-   roslaunch rtabmap_legacy stereo_mapping.launch stereo_namespace:="/stereo" 
-
-   ``` 
-   
-   ```bash
-   rtabmap_args:="--delete_db_on_start" rviz:=true rtabmapviz:=false
+   roslaunch rtabmap_legacy stereo_mapping.launch stereo_namespace:="/stereo" rtabmap_args:="--delete_db_on_start" rviz:=true rtabmapviz:=false
 
    ``` 
 
