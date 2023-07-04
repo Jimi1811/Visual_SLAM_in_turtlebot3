@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="x_pos" default="-0.3"/>
+  <arg name="y_pos" default="-0.3"/>
+  <arg name="z_pos" default="0.0"/>
+
+  <include file="$(find odom_imu)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find odom_imu)/worlds/turtlebot3_world1.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find odom_imu)/urdf/turtlebot3_kinect.urdf.xacro" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description"/>
+
+</launch>
