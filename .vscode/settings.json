@@ -4,7 +4,6 @@
         "es"
     ],
     "spellright.documentTypes": [
-        "latex",
-        "plaintext"
+        "latex"
     ]
 }
