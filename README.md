@@ -7,7 +7,6 @@
 - rtabmap
 
 ## Instalación
-
 1. Crear un workspace para correr los archivos. No se olvide de agregar el workspace en el .bashrc.
    
    ```bash
@@ -18,6 +17,13 @@
    catkin_make
 
    ```
+
+* Debes colocar en .bashrc / .zshrc qué modelo del turtlebot 3 se usará y la identificación del workspace
+  ```bash
+  export TURTLEBOT3_MODEL=waffle_pi
+  source proyecto_ws/devel/setup.bash
+
+  ```
 
 2. Crear una carpeta con nombre 'Turtlebot3' para descargar todos los paquetes necesarios para correr el robot.
 
@@ -31,14 +37,20 @@
 
     ```
 
-3. Clonar este repositorio y volver a compilar el workspace con los nuevos paquetes.
+3. Clonar este repositorio y volver a compilar el workspace con los nuevos paquetes. 
    ```bash
    cd ..
    git clone https://github.com/Jimi1811/Visual_SLAM_in_turtlebot3.git
-   git clone https://github.com/ros-perception/image_pipeline.git
    cd ..
    catkin_make
 
+   ```
+   ```bash
+   cd src
+   git clone https://github.com/ros-perception/image_pipeline.git
+   cd ..
+   catkin_make --only-pkg-with-deps stereo_image_proc
+      
    ```
    
 4. Dar acceso a los códigos a correr. En cada carpeta 'src' con los códigos de cada paquete:
@@ -51,8 +63,14 @@
    chmod a+x *
 
    ``` 
-
-5. Para ejecutar todo el procedimiento ejecutar cada línea de abajo en distintos terminales.
+5. Mover la carpeta my_ground_plane dentro del directorio /home/.gazebo/models/
+   ```bash
+   cd ..
+   # Si no lo realizas en RDS, debes buscar dónde se aloja la carpeta /models
+   mv my_ground_plane /home/user/.gazebo/models
+   ```
+   
+7. Para ejecutar todo el procedimiento ejecutar cada línea de abajo en distintos terminales.
 
    ```bash
    roslaunch stereo_camera maze.launch
@@ -69,7 +87,7 @@
 
    ``` 
 
-6. De allí, controlar el robot para que se mueve por medio de todo el mapa. Se puede realizar con el teleop del turtlebot.
+8. De allí, controlar el robot para que se mueve por medio de todo el mapa. Se puede realizar con el teleop del turtlebot.
    ```bash
    roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
