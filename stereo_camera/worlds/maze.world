@@ -14,7 +14,7 @@
       <direction>-0.5 0.5 -1</direction>
     </light>
     <include>
-      <uri>model://my_ground_plane</uri>
+      <uri>model://my_my_ground_plane</uri>
     </include>
     <physics name='default_physics' default='0' type='ode'>
       <real_time_update_rate>1000</real_time_update_rate>
@@ -668,7 +668,7 @@
       <real_time>138 342092006</real_time>
       <wall_time>1593494246 473557521</wall_time>
       <iterations>128388</iterations>
-      <model name='ground_plane'>
+      <model name='my_ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
